@@ -6,18 +6,17 @@ from django.http import JsonResponse
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from . serializers import PostSerializer
+from . serializers import PostSerializer, GetSerializer
 from . models import Post
 
 # Create your views here.
 class TestView(APIView):
     def get(self, request, *args, **kwargs):
-        data = {
-        'name' : 'james',
-        'city' : 'nairobi',
-        'address' : 123
-        }
-        return Response(data)
+        qs = Post.objects.all()
+        post = qs.first()
+        # serializer = PostSerializer(qs, many=True)
+        serializer = GetSerializer(post)
+        return Response(serializer.data)
     
     def post(self, request, *args, **kwargs):
         serializer = PostSerializer(data=request.data)
