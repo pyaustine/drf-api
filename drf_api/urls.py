@@ -1,8 +1,9 @@
 from django.contrib import admin
-from django.urls import path
-from core.views import test_view
+from django.urls import path, include
+from core.views import TestView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', test_view, name='test'),
+    path('api-auth/', include('rest_framework.urls')),
+    path('', TestView.as_view(), name='test'),
 ]
