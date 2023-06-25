@@ -6,4 +6,13 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = ['title',
-                  'description']
+                  'description'
+                  ]
+        
+class GetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Post
+        fields = ['title',
+                  'description',
+                  'owner'
+                  ]
