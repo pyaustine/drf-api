@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'core',
     'rest_framework',
     'rest_framework.authtoken', # for authentication
+    # 'rest_auth',
+    'dj_rest_auth',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +134,8 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication'
     ]
 }
+
+# REST_AUTH = {
+#     'USE_JWT': True,
+#     'JWT_AUTH_COOKIE': 'jwt-auth',
+# }
